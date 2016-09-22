@@ -1,0 +1,15 @@
+version: '2'
+services:
+  reverse-proxy:
+    build: reverse-proxy/
+    ports:
+     - "80:80"
+    depends_on:
+     - elk
+    volumes:
+    - ./htpasswd:/etc/nginx/.htpasswd
+  elk:
+    build: elk/
+    volumes:
+     - ./elk/conf:/conf
+     - ./logs:/logs
