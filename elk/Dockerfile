@@ -2,6 +2,7 @@ FROM sebp/elk
 
 # overwrite existing file
 ADD /conf/nginx.conf /etc/logstash/conf.d/
+ADD /conf/raw-strings.json /etc/logstash/
 ADD /conf/patterns/* ${LOGSTASH_HOME}/patterns/
 RUN chown -R logstash:logstash ${LOGSTASH_HOME}/patterns
 
